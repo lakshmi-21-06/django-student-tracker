@@ -1,0 +1,84 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+
+<h2>{{ student.name }}</h2>
+
+<p>
+    <strong>Roll Number:</strong>
+    {{ student.roll_number }}
+</p>
+
+<div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+        Grades
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered">
+
+            <tr>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for grade in student.grades.all %}
+
+            <tr>
+
+                <td>{{ grade.subject }}</td>
+
+                <td>{{ grade.score }}</td>
+
+                <td>
+
+                    <a href="{% url 'edit_grade' grade.id %}"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'delete_grade' grade.id %}"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+
+                <td colspan="3">
+                    No grades added yet.
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="mt-3">
+
+    <h4>
+        Average Grade:
+        {{ student.average_grade }}
+    </h4>
+
+</div>
+
+<a href="{% url 'student_list' %}"
+   class="btn btn-secondary mt-3">
+    Back
+</a>
+
+{% endblock %}

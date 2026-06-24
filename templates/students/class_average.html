@@ -1,0 +1,23 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+
+<h2>Class Average</h2>
+
+<table class="table">
+
+<tr>
+    <th>Subject</th>
+    <th>Average</th>
+</tr>
+
+{% for item in averages %}
+<tr>
+    <td>{{ item.subject }}</td>
+    <td>{{ item.avg_score|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

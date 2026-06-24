@@ -1,0 +1,13 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+
+<h2>Top Performer</h2>
+
+{% if top_grade %}
+<p>Student: {{ top_grade.student.name }}</p>
+<p>Subject: {{ top_grade.subject }}</p>
+<p>Score: {{ top_grade.score }}</p>
+{% endif %}
+
+{% endblock %}

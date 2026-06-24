@@ -1,0 +1,90 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">
+            🎓 Student Performance Tracker
+        </h1>
+
+        <p class="lead text-muted">
+            Manage Students, Grades and Performance Reports
+        </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5>Total Students</h5>
+                    <h2>{{ total_students }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5>Total Grades</h5>
+                    <h2>{{ total_grades }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5>Top Performer</h5>
+                    <a href="{% url 'topper' %}"
+                       class="btn btn-warning mt-2">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5>Class Average</h5>
+                    <a href="{% url 'class_average' %}"
+                       class="btn btn-success mt-2">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            Quick Actions
+        </div>
+
+        <div class="card-body text-center">
+
+            <a href="{% url 'add_student' %}"
+               class="btn btn-primary btn-lg m-2">
+                ➕ Add Student
+            </a>
+
+            <a href="{% url 'add_grade' %}"
+               class="btn btn-success btn-lg m-2">
+                📝 Add Grade
+            </a>
+
+            <a href="{% url 'student_list' %}"
+               class="btn btn-info btn-lg m-2">
+                👨‍🎓 View Students
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
